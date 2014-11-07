@@ -1,3 +1,8 @@
+# Written by Alex McMaster
+"""The FeatureVisualizer.py script accepts a directory containing output files
+from Trainer.py and plots each file as a point in 3D Cartesian space.  Features
+are represented on the 3 axes, while segment class is represented by color."""
+
 from mpl_toolkits.mplot3d import Axes3D
 import matplotlib.pyplot as plt
 import scipy.io as sio
@@ -6,14 +11,18 @@ import string
 import time
 import os
 
+# directory containing input files for all patients
 dirpath = "E:/training results 5/"
+
+# patient to plot
+# can be set to "" to use all patients at once
 patient = "Dog_1"
 
 start = time.clock()
 
-ipoints = []
-epoints = []
-lpoints = []
+ipoints = [] # interictal points
+epoints = [] # early ictal points
+lpoints = [] # late ictal points
 
 for dn in os.listdir(dirpath):
     dirstart = time.clock()
@@ -21,8 +30,14 @@ for dn in os.listdir(dirpath):
     if patient in dn:
         for fn in os.listdir(fullpath):
             if "test" not in fn:
+                
+                # full path and filename of input file
                 fullname = os.path.join(fullpath, fn)
+                
+                # create dict from input file
                 point = sio.loadmat(fullname)
+                
+                # separate classes
                 if point['type'] == 'i':
                     ipoints.append(point['data'].tolist())
                 elif point['type'] == 'e':
@@ -35,6 +50,7 @@ for dn in os.listdir(dirpath):
 
 print("Processed all directories in", time.clock() - start, "seconds")
 
+# create scatter plot and fill with data
 fig = plt.figure()
 axis = fig.add_subplot(111, projection='3d')
 x = list(ipoints[i][0][0] for i in range(0, len(ipoints)))
