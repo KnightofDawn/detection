@@ -1,4 +1,4 @@
-#
+# Written by Kent Leyde
 """
 FeatureExplorer.py(): This script runs candidate features on selected ictal
 and interictal files and plots results in histograms.

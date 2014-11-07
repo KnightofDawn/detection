@@ -1,3 +1,4 @@
+# Written by Alex McMaster
 """The Trainer.py script performs feature detection on a set of training data
  by iteratint through a folder of .mat files containing EEG data and extracting
  the following features:
