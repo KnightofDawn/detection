@@ -20,14 +20,11 @@ import re
 import tkinter as tk
 from tkinter import *
 from tkinter.ttk import *
-from tkinter.filedialog import askopenfilename
 from tkinter.filedialog import askdirectory
 
 import numpy as np
-import scipy as sp
 import scipy.io as spio
 import matplotlib.pyplot as plt
-import matplotlib.mlab as mlab
  
     
 #####################################################################################

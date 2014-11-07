@@ -1,13 +1,15 @@
 # Written by Alex McMaster
 """The FeatureVisualizer.py script accepts a directory containing output files
 from Trainer.py and plots each file as a point in 3D Cartesian space.  Features
-are represented on the 3 axes, while segment class is represented by color."""
+are represented on the 3 axes, while segment class is represented by color as
+follows:
 
-from mpl_toolkits.mplot3d import Axes3D
+Blue - Interictal
+Yellow - Early ictal
+Red - Late ictal"""
+
 import matplotlib.pyplot as plt
 import scipy.io as sio
-import numpy as np
-import string
 import time
 import os
 
